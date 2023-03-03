@@ -1,0 +1,188 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create table tblParents(parent_id int primary key auto_increment,parent_name varchar(30) not null,city varchar(30) not null,age int not null,annual_income int not null,
+occupation varchar(50) not null,emailid varchar(40) unique not null);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc tblparents;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| parent_id     | int         | NO   | PRI | NULL    | auto_increment |
+| parent_name   | varchar(30) | NO   |     | NULL    |                |
+| city          | varchar(30) | NO   |     | NULL    |                |
+| age           | int         | NO   |     | NULL    |                |
+| annual_income | int         | NO   |     | NULL    |                |
+| occupation    | varchar(50) | NO   |     | NULL    |                |
+| emailid       | varchar(40) | NO   | UNI | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+mysql> INSERT INTO tblParents (parent_id, parent_name, city, age, annual_income, occupation, emailid)values (1, 'Ardogan', 'Anatolia', 38, 1000000, 'Writer', 'Ardogan@example.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO tblParents (parent_id,parent_name, city, age, annual_income, occupation, emailid)values  (2, 'Haris', 'Mumbai', 47, 850000, 'Electrician', 'Haris@example.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO tblParents (parent_id,parent_name, city, age, annual_income, occupation, emailid)values  (3, 'Karan', 'Ahemdabad', 45, 1200000, 'Carpenter', 'Karan@example.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO tblParents (parent_id,parent_name, city, age, annual_income, occupation, emailid)values (4, 'Kartik', 'lucknow', 42, 900000, 'Teacher', 'Kartik@example.com'),
+(5, 'Jack', 'Hydrabad', 50, 950000, 'Sales Manager', 'Jack@example.com'),(6, 'Shahid', 'Mumbai', 34, 750000, 'Graphic Designer', 'Shahid@example.com');
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO tblParents (parent_id,parent_name, city, age, annual_income, occupation, emailid)values(7, 'Sukhvender', 'Banglore', 41, 1050000, 'IT Manager', 'Sukhvender@example.com')
+,(8, 'Samadhan', 'Kolkata', 47, 1100000, 'Business Analyst', 'Samadhan@example.com'),(9, 'Kayla', 'Rajastan', 39, 300000, 'Real Estate Agent', 'Kayla@example.com'),
+(10, 'Saroj', 'Chennai', 36, 400000, 'Nurse', 'Saroj@example.com'),(11, 'Alex', 'Latur', 49, 1150000, 'Financial Advisor', 'Alex@example.com'),
+(12, 'Philip', 'Washington', 43, 950000, 'Human Resources Manager', 'Philip@example.com'),(13, 'Thomas', 'Paris', 55, 1300000, 'Doctor', 'Thomas@example.com'),
+(14, 'Dana', 'Delhi', 31, 650000, 'Journalist', 'Dana@example.com'),(15, 'Lori', 'Bhopal', 44, 400000, 'Accountant', 'Lori@example.com'),
+(16, 'Rukiya','Pune', 48, 1050000, 'Project Manager', 'Rukiya@example.com'),(17, 'Masum', 'Karnatak', 37, 800000, 'Welder', 'Masum@example.com'),
+(18, 'Vincent', 'Moscow', 35, 750000, 'Social Worker', 'Vincent@example.com'),(19, 'Kim', 'Pune', 51, 1150000, 'Consultant', 'kim@example.com'),
+(20, 'Crud', 'Mumbai', 40, 900000, 'Event Planner', 'Crud@example.com');
+Query OK, 14 rows affected (0.00 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+mysql> select * from tblparents;
++-----------+------------------+------------+-----+---------------+-------------------------+------------------------------+
+| parent_id | parent_name      | city       | age | annual_income | occupation              | emailid
+   |
++-----------+------------------+------------+-----+---------------+-------------------------+------------------------------+
+|         1 | Ardogan          | Anatolia   |  38 |       1000000 | Writer                  | Ardogan@example.com       |
+|         2 | Haris            | Mumbai     |  47 |        850000 | Electician              | Haris@example.com         |
+|         3 | Karan            | Ahemdabad  |  45 |       1200000 | Carpenter               | Karan@example.com         |
+|         4 | Kartik           | lucknow    |  42 |        900000 | Teacher                 | Kartik@example.com        |
+|         5 | Jack             | Hydrabad   |  50 |        950000 | Sales Manager           | Jack@example.com          |
+|         6 | Shahid           | Mumbai     |  34 |        750000 | Graphic Designer        | Shahid@example.com        |
+|         7 | Sukhvender       | Banglore   |  41 |       1050000 | IT Manager              | Sukhvender@example.com    |
+|         8 | Samadhan         | Kolkata    |  47 |       1100000 | Business Analyst        | Samadhan@example.com      |
+|         9 | Kayla            | Rajastan   |  39 |        300000 | Real Estate Agent       | Kayla@example.com         |
+|        10 | Saroj            | Chennai    |  36 |        400000 | Nurse                   | Saroj@example.com         |
+|        11 | Alex             | Latur      |  49 |       1150000 | Financial Advisor       | Alex@example.com          |
+|        12 | Philip           | Washington |  43 |         950000| Human Resources Manager | Philip@example.com        |
+|        13 | Thomas           | Paris      |  55 |       1300000 | Doctor                  | Thomas@example.com        |
+|        14 | Dana             | Delhi      |  31 |        650000 | Journalist              | Dana@example.com          |
+|        15 | Lori             | Bhopal     |  44 |        400000 | Accountant              | Lori@example.com          |
+|        16 | Rukiya           | Pune       |  48 |       1050000 | Project Manager         | Rukiya@example.com        |
+|        17 | Masum            | Karnatak   |  37 |        800000 | Welder                  | Masum@example.com         |
+|        18 | Vincent          | Moscow     |  35 |        750000 | Social Worker           | Vincent@example.com       |
+|        19 | Kim              | Pune       |  51 |       1150000 | Consultant              | kim@example.com           |
+|        20 | Crud             | Mumbai     |  40 |        900000 | Event Planner           | Crud@example.com          |
++-----------+------------------+------------+-----+---------------+-------------------------+------------------------------+
+20 rows in set (0.00 sec)
+mysql> update tblparents set emailid='NA';
+Query OK, 20 rows affected (0.01 sec)
+Rows matched: 20  Changed: 20  Warnings: 0
+
+mysql> select * from tblparents;
++-----------+------------------+------------+-----+---------------+-------------------------+------------------------------+
+| parent_id | parent_name      | city       | age | annual_income | occupation              | emailid
+   |
++-----------+------------------+------------+-----+---------------+-------------------------+------------------------------+
+|         1 | Ardogan          | Anatolia   |  38 |       1000000 | Writer                  | NA                         |
+|         2 | Haris            | Mumbai     |  47 |        850000 | Electician              | NA                         |
+|         3 | Karan            | Ahemdabad  |  45 |       1200000 | Carpenter               | NA                         |
+|         4 | Kartik           | lucknow    |  42 |        900000 | Teacher                 | NA                         |
+|         5 | Jack             | Hydrabad   |  50 |        950000 | Sales Manager           | NA                         |
+|         6 | Shahid           | Mumbai     |  34 |        750000 | Graphic Designer        | NA                         |
+|         7 | Sukhvender       | Banglore   |  41 |       1050000 | IT Manager              | NA                         |
+|         8 | Samadhan         | Kolkata    |  47 |       1100000 | Business Analyst        | NA                         |
+|         9 | Kayla            | Rajastan   |  39 |        300000 | Real Estate Agent       | NA                         |
+|        10 | Saroj            | Chennai    |  36 |        400000 | Nurse                   | NA                         |
+|        11 | Alex             | Latur      |  49 |       1150000 | Financial Advisor       | NA                         |
+|        12 | Philip           | Washington |  43 |         950000| Human Resources Manager | NA                         |
+|        13 | Thomas           | Paris      |  55 |       1300000 | Doctor                  | NA                         |
+|        14 | Dana             | Delhi      |  31 |        650000 | Journalist              | NA                         |
+|        15 | Lori             | Bhopal     |  44 |        400000 | Accountant              | NA                         |
+|        16 | Rukiya           | Pune       |  48 |       1050000 | Project Manager         | NA                         |
+|        17 | Masum            | Karnatak   |  37 |        800000 | Welder                  | NA                         |
+|        18 | Vincent          | Moscow     |  35 |        750000 | Social Worker           | NA                         |
+|        19 | Kim              | Pune       |  51 |       1150000 | Consultant              | NA                         |
+|        20 | Crud             | Mumbai     |  40 |        900000 | Event Planner           | NA                         |
++-----------+------------------+------------+-----+---------------+-------------------------+------------------------------+
+20 rows in set (0.00 sec)
+
+mysql> select count(*) as numparents from tblparents where annual_income>600000;
++------------+
+| numparents |
++------------+
+|         17 |
++------------+
+1 row in set (0.00 sec)
+mysql> select * from tblparents where city in('Ahemdabad','Delhi','Mumbai','Chennai','Banglore','Kolkata','Rajasthan');
++-----------+-----------------+-----------+-----+---------------+-------------------+---------+
+| parent_id | parent_name     | city      | age | annual_income | occupation        | emailid |
++-----------+-----------------+-----------+-----+---------------+-------------------+---------+
+|         2 | Haris           | Mumbai    |  47 |        850000 | Electrician       | NA      |
+|         3 | Karan           | Ahemdabad |  45 |       1200000 | Carpenter         | NA      |
+|         6 | Shahid          | Mumbai    |  34 |        750000 | Graphic Designer  | NA      |
+|         7 | Sukhvender      | Banglore  |  41 |       1050000 | IT Manager        | NA      |
+|         8 | Samadhan        | Kolkata   |  47 |       1100000 | Business Analyst  | NA      |
+|         9 | Kayla           | Rajastan  |  39 |        300000 | Real Estate Agent | NA      |
+|        10 | Saroj           | Chennai   |  36 |        400000 | Nurse             | NA      |
+|        14 | Dana            | Delhi     |  31 |        650000 | Journalist        | NA      |
+|        20 | Crud            | Mumbai    |  40 |        900000 | Event Planner     | NA      |
++-----------+-----------------+-----------+-----+---------------+-------------------+---------+
+9 rows in set (0.00 sec)
+mysql> select * from tblparents where annual_income<500000;
++-----------+------------------+---------+-----+---------------+-------------------+---------+
+| parent_id | parent_name      | city    | age | annual_income | occupation        | emailid |
++-----------+------------------+---------+-----+---------------+-------------------+---------+
+|         9 | Kayla            |Rajastan |  39 |        300000 | Real Estate Agent | NA      |
+|        10 | Saroj            | Chennai|  36 |        400000  | Nurse             | NA      |
+|        15 | Lori             | Bhopal  |  44 |        400000 | Accountant        | NA      |
++-----------+------------------+---------+-----+---------------+-------------------+---------+
+3 rows in set (0.00 sec)
+mysql> select * from tblparents where annual_income<500000 || age>45;
++-----------+------------------+----------+-----+---------------+-------------------+---------+
+| parent_id | parent_name      | city     | age | annual_income | occupation        | emailid |
++-----------+------------------+----------+-----+---------------+-------------------+---------+
+|         5 | Jack             | Hydrabad |  50 |        950000 | Sales Manager     | NA      |
+|         8 | Samadhan         | Kolkata  |  47 |       1100000 | Business Analyst  | NA      |
+|         9 | Kayla            | Rajastan |  39 |        300000 | Real Estate Agent | NA      |
+|        10 | Saroj            | Chennai  |  36 |        400000 | Nurse             | NA      |
+|        11 | Alex             | Latur    |  49 |       1150000 | Financial Advisor | NA      |
+|        13 | Thomas           | Paris    |  55 |       1300000 | Doctor            | NA      |
+|        15 | Lori             | Bhopal   |  44 |        400000 | Accountant        | NA      |
+|        16 | Rukiya           | Pune     |  48 |       1050000 | Project Manager   | NA      |
+|        19 | Kim              | Pune     |  51 |       1150000 | Consultant        | NA      |
++-----------+------------------+----------+-----+---------------+-------------------+---------+
+9 rows in set, 1 warning (0.00 sec)
+mysql> create table student(studentid int primary key not null,studentname varchar(50) not null,maths int not null,science int not null, parent_id int not null,foreign key(parent_id) references tblparents(parent_id));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO Student VALUES(1, 'Rock', 86, 90, 1),(2, 'Shane', 75, 85, 2),(3, 'Hasan', 67, 95, 3),(4, 'Johnson', 85, 80, 4),(5, 'Hasib', 70, 75, 5),(6, 'Varun', 95, 90, 6),(7, 'James', 80, 85, 7),(8, 'Karim', 75, 80, 8),(9, 'Sufiyan', 90, 95, 9),(10, 'Heena', 85, 80, 10);
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++-----------+--------------+-------+---------+-----------+
+| studentid | studentname  | maths | science | parent_id |
++-----------+--------------+-------+---------+-----------+
+|         1 | Rock         |    86 |      90 |         1 |
+|         2 | Shane        |    75 |      85 |         2 |
+|         3 | Hasan        |    67 |      95 |         3 |
+|         4 | Johnson      |    85 |      80 |         4 |
+|         5 | Hasib        |    70 |      75 |         5 |
+|         6 | Varun        |    95 |      90 |         6 |
+|         7 | James        |    80 |      85 |         7 |
+|         8 | Karim        |    75 |      80 |         8 |
+|         9 | Sufiyan      |    90 |      95 |         9 |
+|        10 | Heena        |    85 |      80 |        10 |
++-----------+--------------+-------+---------+-----------+
+10 rows in set (0.00 sec)
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+S

@@ -1,0 +1,84 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.29 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> Create Tables myTable (sno int Not Null Auto-create,cid int not null,c_name varchar(50) not null,ccity varchar(50) not null,primary key (sno));
+Query OK, 0 rows affected (0.09 sec)
+mysql> insert into myTable (cid, cname, ccity) values (1, 'Insta Pizza', 'Anatolia'),(2, 'Pizzas Corner', 'Anatalaya'),(3, 'Papa johns', 'Washington'),(4,'Laziz Pizza', 'West Flanders'),(5, 'Oven Story', 'san Frascisco'),(6, 'Pizza Express', 'Texas'),(7, 'Mojo Express', 'Chicago');
+Query OK, 7 rows affected (0.05 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM MYTABLE;
++------+------+----------------+---------------+
+| SNO  | CID  | CNAME          | CCITY         |
++------+------+----------------+---------------+
+|    1 |    1 | Insta Pizza    | Antolia       |
+|    2 |    2 | Pizza Corner   | Antalaya      |
+|    3 |    3 | Papa Johns     | Washington    |
+|    4 |    4 | Laziz Pizza    | West Flanders |
+|    5 |    5 | Oven Story     | San Frascisco |
+|    6 |    6 | Pizza Express  | Texas         |
+|    7 |    7 | Mojo Pizza     | Chicago       |
++------+------+----------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> Cretae Table Mytable1 ( sno int not null autoincrement,itemid int not nulL,itemname varchar(50) not null,unitsold int not null,cid int not null,primary key(sno));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> insert into mytable1 (itemid, iten name, unitsold,cid) VALUES (1,'large pizza',5,2),(2,'garlic knots',6,3),(3,'largepizza',3,3),(4,'mediumpizza',8,4),(5,'breadasticks',7,1),(6,'medium pizza',11,1),(7,'small pizza',9,6),(8,'small pizza',6,7);
+Query OK, 7 rows affected (0.05 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * from mytable;
++------+------+----------------+---------------+
+| SNO  | CID  | CNAME          | CCITY         |
++------+------+----------------+---------------+
+|    1 |    1 | Insta Pizza    | Antolia       |
+|    2 |    2 | Pizza Corner   | Antalaya      |
+|    3 |    3 | Papa Johns     | Washington    |
+|    4 |    4 | Laziz Pizza    | West Flanders |
+|    5 |    5 | Oven Story     | San Frascisco |
+|    6 |    6 | Pizza Express  | Texas         |
+|    7 |    7 | Mojo Pizza     | Chicago       |
++------+------+----------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * From mytable1
+mysql> SELECT * from mytable1;
++------+---------+--------------+------------+------+
+| SNO  | ITEMID  | ITEMNAME     | UNITSSOLD  | CID  |
++------+---------+--------------+------------+------+
+|    1 |       1 | Large Pizza  |          5 |    2 |
+|    2 |       2 | Garlics knots|          6 |    3 |
+|    3 |       3 | Large Pizza  |          3 |    3 |
+|    4 |       4 | Medium Pizza |          8 |    4 |
+|    5 |       5 | Breadsticks  |          7 |    1 |
+|    6 |       6 | Medium Pizza |         11 |    1 |
+|    7 |       7 | Small Pizza  |          9 |    6 |
+|    8 |       8 | Small Pizza  |          6 |    7 |
++------+---------+--------------+------------+------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT MYTABLE.*,MYTABLE1.*FROM MYTABLEINNER JOIN MYTABLE1 ON MYTABLE.C_ID=MYTABLE1.C_ID;
++------+------+----------------+---------------+------+---------+--------------+------------+------+
+| SNO  | CID  |   CNAME        | CCITY         | SNO   | ITEMID | ITEMNAME     | UNITSSOLD  | CID  |
++------+------+----------------+---------------+------+---------+--------------+------------+------+
+|    2 |    2 | Pizza Corner   | antalaya      |    1 |       1 | Large Pizza  |          5 |    2 |
+|    3 |    3 | Papa Johns     | Washington    |    2 |       2 |Garlic knots  |          6 |    3 |
+|    3 |    3 | Papa Johns     | Washington    |    3 |       3 | Large Pizza  |          3 |    3 |
+|    4 |    4 | Laziz Pizza    | Laziz Pizza   |    4 |       4 | Medium Pizza |          8 |    4 |
+|    1 |    1 | Insta Pizza    | West Flanders |    5 |       5 |Breadsticks   |          7 |    1 |
+|    1 |    1 | Insta Pizza    | West Flander  |    6 |       6 | Medium Pizza |         11 |    1 |
+|    6 |    6 | Pizza express  | Texas         |    7 |       7 |Samll Pizza   |          9 |    6 |
+|    7 |    7 | Mojo Pizza     | Chicago       |    8 |       8 | Small Pizza  |          6 |    7 |
++------+------+----------------+---------------+------+---------+--------------+------------+------+
+8 rows in set (0.03 sec)
